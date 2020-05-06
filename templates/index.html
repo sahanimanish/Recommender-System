@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Movie Recommendation System</title>
+{% endblock %}
+
+{% block body %}
+<header class="main-header">
+    <div class="main-header__brand">
+      <a href="index.html"><i class="fas fa-film"></i> Movie Recommender</a>
+    </div>
+    <nav class="main-nav">
+      <form action="">
+        <input
+          type="text"
+          placeholder="type movie id here.."
+          class="search-bar"
+        />
+        <button class="search-btn">search</button>
+      </form>
+    </nav>
+  </header>
+  <main>
+    <div class="main-background">
+      <h1 class="main-quote"></h1>
+    </div>
+  </main>
+{% endblock %}

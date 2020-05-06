@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block head %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/movies_style.css')}}"
+/>
+<title>Movie Recommendation System</title>
+{% endblock %} {% block body %}
+<header class="main-header">
+  <div class="main-header__brand">
+    <a href="index.html"><i class="fas fa-film"></i> Movie Recommender</a>
+  </div>
+  <nav class="main-nav">
+    <form action="">
+      <input
+        type="text"
+        placeholder="type movie id here..."
+        class="search-bar"
+      />
+      <button class="search-btn">search</button>
+    </form>
+  </nav>
+</header>
+<main>
+  <h1 class="searched-movie">Your Search Result</h1>
+    <div class="movie-poster card">
+        <img src="{{name[0]['Poster']}}" alt="Poster Not Found" class="movie-poster" >
+        <h1 class="movie-title">{{name[0]['Title']}}</h1>
+    </div>
+  <h1 class="recommended-movies">Recommended For You</h1>
+  <div class="movies-list">
+    {% for movie in name[1:] %}
+    <div class="poster card movie-list-item">
+      <img
+        src="{{movie['Poster']}}"
+        alt="Poster Not Found"
+        class="movie-poster"
+      />
+      <h1 class="movie-title">{{movie['Title']}}</h1>
+      <!-- <h1>{{movie}}</h1> -->
+    </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}
